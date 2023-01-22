@@ -1,0 +1,119 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="argmin is a numerical optimization library written entirely in Rust."><meta name="keywords" content="rust, rustlang, rust-lang, argmin"><title>argmin - Rust</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../normalize.css"><link rel="stylesheet" href="../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../ayu.css" disabled><link rel="stylesheet" href="../dark.css" disabled><link rel="stylesheet" href="../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../storage.js"></script><script defer src="../crates.js"></script><script defer src="../main.js"></script><noscript><link rel="stylesheet" href="../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../favicon.svg"></head><body class="rustdoc mod crate"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../argmin/index.html"><div class="logo-container"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></div></a><h2></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../argmin/index.html"><div class="logo-container"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></div></a><h2 class="location"><a href="#">Crate argmin</a></h2><div class="sidebar-elems"><ul class="block"><li class="version">Version 0.7.0</li><li><a id="all-types" href="all.html">All Items</a></li></ul><section><ul class="block"><li><a href="#modules">Modules</a></li><li><a href="#macros">Macros</a></li></ul></section></div></nav><main><div class="width-limiter"><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="main-heading"><h1 class="fqn">Crate <a class="mod" href="#">argmin</a><button id="copy-path" onclick="copy_path(this)" title="Copy item path to clipboard"><img src="../clipboard.svg" width="19" height="18" alt="Copy item path"></button></h1><span class="out-of-band"><a class="srclink" href="../src/argmin/lib.rs.html#8-123">source</a> · <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span></div><details class="rustdoc-toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>argmin is a numerical optimization library written entirely in Rust.</p>
+<p>Its goal is to offer a wide range of optimization algorithms with a consistent interface.
+It is type-agnostic by design, meaning that any type and/or math backend, such as
+<code>nalgebra</code> or <code>ndarray</code> can be used – even your own.</p>
+<p>Observers allow one to track the progress of iterations, either by using one of the provided
+ones for logging to screen or disk or by implementing your own.</p>
+<p>An optional checkpointing mechanism helps to mitigate the negative effects of crashes in
+unstable computing environments.</p>
+<p>Due to Rusts powerful generics and traits, most features can be exchanged by your own tailored
+implementations.</p>
+<p>argmin is designed to simplify the implementation of optimization algorithms and as such can
+also be used as a toolbox for the development of new algorithms. One can focus on the algorithm
+itself, while the handling of termination, parameter vectors, populations, gradients, Jacobians
+and Hessians is taken care of by the library.</p>
+<p>For an introduction on how to use argmin, please also have a look at the
+<a href="http://www.argmin-rs.org/book/">book</a>.</p>
+<h2 id="highlights"><a href="#highlights">Highlights</a></h2>
+<ul>
+<li><a href="core/checkpointing/index.html">Checkpointing</a></li>
+<li><a href="core/observers/index.html">Observers</a></li>
+</ul>
+<h2 id="algorithms"><a href="#algorithms">Algorithms</a></h2>
+<ul>
+<li>
+<p><a href="solver/linesearch/index.html">Line searches</a></p>
+<ul>
+<li><a href="solver/linesearch/struct.BacktrackingLineSearch.html">Backtracking line search</a></li>
+<li><a href="solver/linesearch/struct.MoreThuenteLineSearch.html">More-Thuente line search</a></li>
+<li><a href="solver/linesearch/struct.HagerZhangLineSearch.html">Hager-Zhang line search</a></li>
+</ul>
+</li>
+<li>
+<p><a href="solver/trustregion/struct.TrustRegion.html">Trust region method</a></p>
+<ul>
+<li><a href="solver/trustregion/struct.CauchyPoint.html">Cauchy point method</a></li>
+<li><a href="solver/trustregion/struct.Dogleg.html">Dogleg method</a></li>
+<li><a href="solver/trustregion/struct.Steihaug.html">Steihaug method</a></li>
+</ul>
+</li>
+<li>
+<p><a href="solver/gradientdescent/struct.SteepestDescent.html">Steepest descent</a></p>
+</li>
+<li>
+<p><a href="solver/conjugategradient/index.html">Conjugate gradient methods</a></p>
+<ul>
+<li><a href="solver/conjugategradient/struct.ConjugateGradient.html">Conjugate gradient method</a></li>
+<li><a href="solver/conjugategradient/struct.NonlinearConjugateGradient.html">Nonlinear conjugate gradient method</a></li>
+</ul>
+</li>
+<li>
+<p><a href="solver/newton/index.html">Newton methods</a></p>
+<ul>
+<li><a href="solver/newton/struct.Newton.html">Newton’s method</a></li>
+<li><a href="solver/newton/newton_cg/struct.NewtonCG.html">Newton-CG</a></li>
+</ul>
+</li>
+<li>
+<p><a href="solver/quasinewton/index.html">Quasi-Newton methods</a></p>
+<ul>
+<li><a href="solver/quasinewton/struct.BFGS.html">BFGS</a></li>
+<li><a href="solver/quasinewton/struct.LBFGS.html">L-BFGS</a></li>
+<li><a href="solver/quasinewton/struct.DFP.html">DFP</a></li>
+<li><a href="solver/quasinewton/struct.SR1.html">SR1</a></li>
+<li><a href="solver/quasinewton/struct.SR1TrustRegion.html">SR1-TrustRegion</a></li>
+</ul>
+</li>
+<li>
+<p><a href="solver/gaussnewton/index.html">Gauss-Newton methods</a></p>
+<ul>
+<li><a href="solver/gaussnewton/struct.GaussNewton.html">Gauss-Newton method</a></li>
+<li><a href="solver/gaussnewton/struct.GaussNewtonLS.html">Gauss-Newton method with linesearch</a></li>
+</ul>
+</li>
+<li>
+<p><a href="solver/goldensectionsearch/struct.GoldenSectionSearch.html">Golden-section search</a></p>
+</li>
+<li>
+<p><a href="solver/landweber/struct.Landweber.html">Landweber iteration</a></p>
+</li>
+<li>
+<p><a href="solver/brent/index.html">Brent’s methods</a></p>
+<ul>
+<li><a href="solver/brent/struct.BrentOpt.html">Brent’s minimization method</a></li>
+<li><a href="solver/brent/struct.BrentRoot.html">Brent’s root finding method</a></li>
+</ul>
+</li>
+<li>
+<p><a href="solver/neldermead/struct.NelderMead.html">Nelder-Mead method</a></p>
+</li>
+<li>
+<p><a href="solver/simulatedannealing/struct.SimulatedAnnealing.html">Simulated Annealing</a></p>
+</li>
+<li>
+<p><a href="solver/particleswarm/struct.ParticleSwarm.html">Particle Swarm Optimization</a></p>
+</li>
+</ul>
+<h3 id="external-solvers-compatible-with-argmin"><a href="#external-solvers-compatible-with-argmin">External solvers compatible with argmin</a></h3>
+<p>External solvers which implement the <code>Solver</code> trait are compatible with argmins <code>Executor</code>,
+and as such can leverage features like checkpointing and observers.</p>
+<ul>
+<li><a href="https://crates.io/crates/egobox-ego">egobox</a></li>
+</ul>
+<h2 id="license"><a href="#license">License</a></h2>
+<p>Licensed under either of</p>
+<ul>
+<li>Apache License, Version 2.0,
+(<a href="https://github.com/argmin-rs/argmin/blob/main/LICENSE-APACHE">LICENSE-APACHE</a> or
+<a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a>)</li>
+<li>MIT License (<a href="https://github.com/argmin-rs/argmin/blob/main/LICENSE-MIT">LICENSE-MIT</a> or
+<a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a>)</li>
+</ul>
+<p>at your option.</p>
+<h3 id="contribution"><a href="#contribution">Contribution</a></h3>
+<p>Unless you explicitly state otherwise, any contribution intentionally submitted for inclusion
+in the work by you, as defined in the Apache-2.0 license, shall be dual licensed as above,
+without any additional terms or conditions.</p>
+</div></details><h2 id="modules" class="small-section-header"><a href="#modules">Modules</a></h2><div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="mod" href="core/index.html" title="argmin::core mod">core</a></div><div class="item-right docblock-short">argmin optimization toolbox core</div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="solver/index.html" title="argmin::solver mod">solver</a></div><div class="item-right docblock-short">Solvers</div></div></div><h2 id="macros" class="small-section-header"><a href="#macros">Macros</a></h2><div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.argmin_error.html" title="argmin::argmin_error macro">argmin_error</a></div><div class="item-right docblock-short">Create an <code>ArgminError</code> with a provided message.</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.argmin_error_closure.html" title="argmin::argmin_error_closure macro">argmin_error_closure</a></div><div class="item-right docblock-short">Create an <code>ArgminError</code> with a provided message wrapped in a closure for use in
+<code>.ok_or_else(...)</code> methods on <code>Option</code>s.</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.bulk.html" title="argmin::bulk macro">bulk</a></div><div class="item-right docblock-short">Creates the <code>bulk_X</code> methods.</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.check_param.html" title="argmin::check_param macro">check_param</a></div><div class="item-right docblock-short">Release an <code>T</code> from an <code>Option&lt;T&gt;</code> if it is not <code>None</code>. If it is <code>None</code>, return an
+<code>ArgminError</code> with a provided message.</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.float.html" title="argmin::float macro">float</a></div><div class="item-right docblock-short">Convert a constant to a float of given precision</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.kv.html" title="argmin::kv macro">kv</a></div><div class="item-right docblock-short">Creates an <code>KV</code> at compile time</div></div></div></section></div></main><div id="rustdoc-vars" data-root-path="../" data-current-crate="argmin" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.1 (90743e729 2023-01-10)" ></div></body></html>
